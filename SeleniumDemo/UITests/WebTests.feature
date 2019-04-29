@@ -3,9 +3,8 @@
 	As a QA doing a demo
 	I want to poke around the Internet a bit
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+@google
+Scenario: Search Google for the weather
+	Given I am on Google
+	When I search for the weather
+	Then I should see the temperature on the screen

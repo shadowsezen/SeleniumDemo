@@ -13,13 +13,13 @@ namespace UITests
         [Given(@"I am on Google")]
         public void GivenIAmOnGoogle()
         {
-            _webDriver.Navigate().GoToUrl("www.google.com");
+            _webDriver.Navigate().GoToUrl("http://www.google.com");
         }
         
         [When(@"I search for weather")]
         public void WhenISearchForWeather()
         {
-            ScenarioContext.Current.Pending();
+            _webDriver.FindElement(By.ClassName("gsfi")).SendKeys("weather"); //Google likes to rename the textbox
         }
         
         [Then(@"the weather should display")]

@@ -27,7 +27,24 @@ namespace UITests
             //using the Enter key is more reliable than interacting with the Search button
             _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(Keys.Return);
         }
-        
+
+        [When(@"I search for carrots")]
+        public void WhenISearchForCarrots()
+        {
+            _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys("carrots");
+
+            //using the Enter key is more reliable than interacting with the Search button
+            _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(Keys.Return);
+        }
+
+        [When(@"I click the Wikipedia link")]
+        public void WhenIClickTheWikipediaLink()
+        {
+            _webDriver.FindElement(By.PartialLinkText("Wikipedia")).Click();
+
+            wait.Until(d => { return _webDriver.FindElement(By.LinkText("Daucus carota")); });
+        }
+
         [Then(@"the weather should display")]
         public void ThenTheWeatherShouldDisplay()
         {
@@ -36,6 +53,14 @@ namespace UITests
             //basic assert to see that a value is present for the temperature
             Assert.IsNotNull(temperature);
         }
+
+        [Then(@"I should be able to learn about carrots")]
+        public void ThenIShouldBeAbleToLearnAboutCarrots()
+        {
+            var heading = _webDriver.FindElement(By.Id("firstHeading"));
+            Assert.AreEqual("Carrot", heading.Text);
+        }
+
 
         [BeforeScenario]
         public void CreateTestDriver()

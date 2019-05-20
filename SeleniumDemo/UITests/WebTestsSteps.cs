@@ -37,6 +37,15 @@ namespace UITests
             _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(Keys.Return);
         }
 
+        //[When(@"I search for (.*)")]
+        //public void WhenISearchFor(string searchTerm)
+        //{
+        //    _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(searchTerm);
+
+        //    //using the Enter key is more reliable than interacting with the Search button
+        //    _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(Keys.Return);
+        //}
+
         [When(@"I click the Wikipedia link")]
         public void WhenIClickTheWikipediaLink()
         {

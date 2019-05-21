@@ -13,5 +13,5 @@ Scenario: Check the weather
 Scenario: Learn about carrots
 	Given I am on Google
 	When I search for carrots
-		And  I click the Wikipedia link
+		And I click the Wikipedia link
 	Then I should be able to learn about carrots

@@ -18,33 +18,33 @@ namespace UITests
         {
             _webDriver.Navigate().GoToUrl("http://www.google.com");
         }
-        
-        [When(@"I search for weather")]
-        public void WhenISearchForWeather()
-        {
-            _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys("weather");
 
-            //using the Enter key is more reliable than interacting with the Search button
-            _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(Keys.Return);
-        }
-
-        [When(@"I search for carrots")]
-        public void WhenISearchForCarrots()
-        {
-            _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys("carrots");
-
-            //using the Enter key is more reliable than interacting with the Search button
-            _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(Keys.Return);
-        }
-
-        //[When(@"I search for (.*)")]
-        //public void WhenISearchFor(string searchTerm)
+        //[When(@"I search for weather")]
+        //public void WhenISearchForWeather()
         //{
-        //    _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(searchTerm);
+        //    _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys("weather");
 
         //    //using the Enter key is more reliable than interacting with the Search button
         //    _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(Keys.Return);
         //}
+
+        //[When(@"I search for carrots")]
+        //public void WhenISearchForCarrots()
+        //{
+        //    _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys("carrots");
+
+        //    //using the Enter key is more reliable than interacting with the Search button
+        //    _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(Keys.Return);
+        //}
+
+        [When(@"I search for (.*)")]
+        public void WhenISearchFor(string searchTerm)
+        {
+            _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(searchTerm);
+
+            //using the Enter key is more reliable than interacting with the Search button
+            _webDriver.FindElement(By.ClassName("gLFyf")).SendKeys(Keys.Return);
+        }
 
         [When(@"I click the Wikipedia link")]
         public void WhenIClickTheWikipediaLink()
@@ -69,7 +69,6 @@ namespace UITests
             var heading = _webDriver.FindElement(By.Id("firstHeading"));
             Assert.AreEqual("Carrot", heading.Text);
         }
-
 
         [BeforeScenario]
         public void CreateTestDriver()
